@@ -47,22 +47,37 @@ void versenyzo_kiir(Versenyzo v);
 int main(void) {
     feladat1();
     feladat2();
+    feladat3();
+    feladat4();
+    feladat5();
+    feladat6();
 }
 
 void feladat1(void) {
-    int arr[] = {-2, 77, -19, 38, 122, -55};
-    int negDb;
+#include <stdio.h>
+    double szamok[10] = {2.5, -69, 5.4, -8, -7.7, 6, 2.9, -10, -3, 9.8};
+    int negativIndexek[10];
+    int negDb = 0;
 
-    printf("Osszesen %d szam van.", (int) sizeof(arr));
+    printf("Osszesen %d szam van.\n", 10);
 
-    for (int i = 0; i < sizeof(arr); i++) {
-        printf("[%d] = %d\n", i, arr[i]);
-        if (arr[i] < 0) {
-            negDb++;
+    for (int i = 0; i < 10; ++i) {
+        printf("[%d]=%g ", i, szamok[i]);
+
+
+        if (szamok[i] < 0) {
+            negativIndexek[negDb++] = i;
         }
     }
+    printf("\n");
 
-    printf("Osszesen %d szam negativ.", negDb);
+    printf("Ebbol %d szam negativ.\n", negDb);
+
+    for (int i = 0; i < negDb; ++i) {
+        int index = negativIndexek[i];
+        printf("[%d]=%g ", index, szamok[index]);
+    }
+    printf("\n");
 }
 
 double kob(double x) {
@@ -78,19 +93,20 @@ double abs(double x) {
 
 void feladat2(void) {
     for (double i = -1; i < 1; i += 0.1) {
-        printf("%.4lf, %.4lf, %.4lf, %.4lf", i, kob(i), abs(i), sin(i));
+        printf("%.4lf, %.4lf, %.4lf, %.4lf \n", i, kob(i), abs(i), sin(i));
     }
 }
 
 void feladat3() {
     char c;
 
-    while (scanf("%c", &c) != EOF) {
+    while (scanf("%c", &c) != EOF && c != '\n') {
         if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O') {
             printf("%cv%c", c, c);
         } else {
             printf("%c", c);
         }
+        printf("\n");
     }
 }
 
@@ -113,7 +129,7 @@ void feladat4() {
     scanf("%lf", &p2.y);
 
     Pont p3 = szamoljFelezopontot(p1, p2);
-    printf("(%lf; %lf)", p3.x, p3.y);
+    printf("(%g; %g)\n", p3.x, p3.y);
 }
 
 void feladat5() {
@@ -125,35 +141,39 @@ void feladat5() {
         {"Reset Elek", {1992, 4, 5}, 4},
     };
 
-    printf("%s", versenyzok[0].nev);
-    printf("%d", versenyzok[2].helyezes);
-
+    printf("%s\n", versenyzok[0].nev);
+    printf("%d\n", versenyzok[2].helyezes);
     datum_kiir(versenyzok[4].szuletes);
+    printf("\n");
 
     char *nev = versenyzok[1].nev;
-    printf("%c", nev[0]);
+    printf("%c\n", nev[0]);
 
     char *szoveg;
-    versenyzok[1].helyezes <= 3 ? szoveg = "Dobogos" : szoveg = "Nem dobogos";
-    printf("%s", szoveg);
-
-    if (versenyzok[4].helyezes < versenyzok[3].helyezes) {
-        printf("A 3. versenyzo gyorsabb", szoveg);
+    if (versenyzok[1].helyezes <= 3) {
+        szoveg = "Dobogos";
     } else {
-        printf("A 4. versenyzo gyorsabb", szoveg);
+        szoveg = "Nem dobogos";
+    }
+    printf("%s\n", szoveg);
+
+    if (versenyzok[3].helyezes < versenyzok[2].helyezes) {
+        printf("A 3. versenyzo gyorsabb\n", szoveg);
+    } else {
+        printf("A 4. versenyzo gyorsabb\n", szoveg);
     }
 
 
     if (versenyzok[1].szuletes.ev == versenyzok[2].szuletes.ev) {
-        printf("Ugyanabban az evben szulettek");
+        printf("Ugyanabban az evben szulettek\n");
     } else {
-        printf("Nem ugyanabban az evben szulettek");
+        printf("Nem ugyanabban az evben szulettek\n");
     }
 
     versenyzo_kiir(versenyzok[1]);
 
-    for (int i = 0; i < sizeof(versenyzok); ++i) {
-        printf("Sorszam : %d", i);
+    for (int i = 0; i < 5; ++i) {
+        printf("Sorszam : %d\n", i);
         versenyzo_kiir(versenyzok[i]);
     }
 }
@@ -167,35 +187,39 @@ void versenyzo_kiir(Versenyzo v) {
     printf("Nev: %s \n", v.nev);
     printf("Szuletesi datum: ");
     datum_kiir(v.szuletes);
+    printf("\n");
 }
 
 void feladat6() {
     int a = 1;
     int opcio = 0;
 
-    printf("0. Alapertek visszaallitasa (a = 1)\n"
-        "1. Hozzaad 1-et\n"
-        "2. Megforditja az elojelet\n"
-        "3. Szorozza 2-vel\n"
-        "9. Kilepes\n");
-
-    scanf("%d", &opcio);
-
-    switch (opcio) {
-        case 0:
-            feladat6();
-            break;
-        case 1:
-            adjHozza(a);
-            break;
-        case 2:
-            valtsElojelet(a);
-            break;
-        case 3:
-            szorozzKettovel(a);
-            break;
-        case 9:
-            return;
+    while (opcio != 9) {
+        printf("0. Alapertek visszaallitasa (a = 1)\n"
+            "1. Hozzaad 1-et\n"
+            "2. Megforditja az elojelet\n"
+            "3. Szorozza 2-vel\n"
+            "9. Kilepes\n");
+        scanf("%d", &opcio);
+        switch (opcio) {
+            case 0:
+                a = 1;
+                break;
+            case 1:
+                a = adjHozza(a);
+                printf("%d \n", a);
+                break;
+            case 2:
+                a = valtsElojelet(a);
+                printf("%d \n", a);
+                break;
+            case 3:
+                a = szorozzKettovel(a);
+                printf("%d \n", a);
+                break;
+            case 9:
+                return;
+        }
     }
 }
 

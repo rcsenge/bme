@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/radacsenge/CLionProjects/lab3/cmake-build-debug"
+			"value" : "/Users/radacsenge/Desktop/BME/Prog1/Week-03/lab3/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -383,7 +383,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/radacsenge/CLionProjects/lab3/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "/Users/radacsenge/Desktop/BME/Prog1/Week-03/lab3/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -443,7 +443,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/radacsenge/CLionProjects/lab3"
+			"value" : "/Users/radacsenge/Desktop/BME/Prog1/Week-03/lab3"
 		},
 		{
 			"name" : "CMAKE_INSTALL_NAME_TOOL",
@@ -1031,7 +1031,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/radacsenge/CLionProjects/lab3/cmake-build-debug"
+			"value" : "/Users/radacsenge/Desktop/BME/Prog1/Week-03/lab3/cmake-build-debug"
 		},
 		{
 			"name" : "lab3_IS_TOP_LEVEL",
@@ -1055,7 +1055,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/radacsenge/CLionProjects/lab3"
+			"value" : "/Users/radacsenge/Desktop/BME/Prog1/Week-03/lab3"
 		}
 	],
 	"kind" : "cache",
